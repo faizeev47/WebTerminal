@@ -16,7 +16,7 @@ export class BookingComponent implements OnInit {
   nic: string;
   meal: string;
 
-  const reg = new RegExp('^[0-9]{5}\-[0-9]{7}\-[0-9]{1}');
+  reg = new RegExp('^[0-9]{5}\-[0-9]{7}\-[0-9]{1}');
 
   constructor(
     private route: ActivatedRoute,
@@ -44,7 +44,7 @@ export class BookingComponent implements OnInit {
       return;
     }
     if (!this.reg.test(this.nic)) {
-      window.alert("Please enter the correct NIC number");
+      window.alert("Please enter your government issued NIC number\nFormat:00000-0000000-0 (include '-'s)");
       return;
     }
     this.airlineService.reserveSeat(this.journey.journeyId, this.nic);

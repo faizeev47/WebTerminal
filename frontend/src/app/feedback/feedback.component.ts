@@ -10,7 +10,7 @@ import { AirlineService } from '../airline.service';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent implements OnInit {
-  feedback;
+  feedback: string;
 
   constructor(
     private location: Location,
@@ -25,10 +25,10 @@ export class FeedbackComponent implements OnInit {
   }
 
   submitFeedback() {
-    if (!feedback || feedback === "") {
+    if (!this.feedback || this.feedback === "") {
       window.alert("Type your feedback in the above text box and press 'Submit'");
       return;
     }
-    this.airlineService.submitFeedback(feedback);
+    this.airlineService.submitFeedback(this.feedback);
   }
 }

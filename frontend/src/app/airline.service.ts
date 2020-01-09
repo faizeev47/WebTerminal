@@ -41,4 +41,7 @@ export class AirlineService {
     return of(null);
   }
 
+  submitFeedback(feedback: string): Observable<any> {
+    return of(null);
+  }
 }
