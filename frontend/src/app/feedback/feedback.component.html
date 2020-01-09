@@ -1,0 +1,10 @@
+<button (click)="goBack()">Go back</button>
+
+<h1>Give your feedback</h1>
+  <textarea
+    [(ngModel)]="feedback"
+    placeholder="Feedback here please"
+    rows="8"
+    cols="80"></textarea>
+<br>
+<button (click)="submitFeedback()">Submit</button>

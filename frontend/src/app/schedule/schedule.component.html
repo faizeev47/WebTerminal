@@ -1,0 +1,40 @@
+
+<button (click)="getSchedule()">
+  Get Schedule
+</button>
+<a class="button" routerLink="/feedback">
+  Give Feedback
+</a>
+<div *ngIf="schedule && schedule.length">
+  <h1>Schedule</h1>
+  <hr>
+  <ul>
+    <li *ngFor="let journey of schedule">
+      <h2>
+        {{ journey.flightNumber | uppercase }}
+        <a *ngIf="journey.remainingSeats > 0"
+            class="booking"
+            routerLink="/booking/{{ journey.journeyId }}">
+          Make a booking
+        </a>
+      </h2>
+      <p>
+        <span>FROM: <strong>{{ journey.originCode | uppercase }}</strong></span>
+        <span>TO: <strong>{{ journey.destinationCode | uppercase }}</strong></span>
+      </p>
+      <p>
+        <span>DEPARTURE: <strong>{{ journey.departureTime | uppercase }}</strong></span>
+      </p>
+      <p>
+        <span>ARRIVAL: <strong>{{ journey.arrivalTime | uppercase }}</strong></span>
+      </p>
+      <p>
+        <span>
+          SEATS:
+          <strong *ngIf="journey.remainingSeats > 0; else elseBlock" style="color:darkgreen;">AVAILABLE</strong>
+          <ng-template class="strong" #elseBlock><strong style="color:darkred">NOT AVAILABLE</strong></ng-template>
+        </span>
+      </p>
+    </li>
+  </ul>
+</div>
