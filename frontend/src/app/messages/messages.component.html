@@ -1,0 +1,9 @@
+<div class="messages-box"
+  *ngIf="messageService.messages && messageService.messages.length">
+  <strong>Notifications:</strong>
+  <li class="message" *ngFor="let message of messageService.messages">
+    {{ message }}
+  </li>
+
+  <button (click)="messageService.clear()">clear</button>
+</div>
